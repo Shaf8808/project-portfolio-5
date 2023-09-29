@@ -7,8 +7,8 @@ class FollowerSerializer(serializers.ModelSerializer):
     """
     Serializer for the Follower model
     Create method handles the unique constraint on 'owner' and 'followed'
-    and displays an error if the same owner tries to follow the 
-    same user twice
+    and displays an error if the same owner tries to 
+    follow the same user twice
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     followed_name = serializers.ReadOnlyField(source='followed.username')
@@ -16,14 +16,11 @@ class FollowerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follower
         fields = [
-            'id', 'owner', 'followed_name', 'followed',
-            'created_at'
+            'id', 'owner', 'created_at', 'followed', 'followed_name'
         ]
 
     def create(self, validated_data):
         try:
             return super().create(validated_data)
         except IntegrityError:
-            raise serializers.ValidationError({
-                'detail': 'possible duplicate'
-            })
+            raise serializers.ValidationError({'detail': 'possible duplicate'})
