@@ -12,11 +12,11 @@ class Follower(models.Model):
     'unique_together' makes sure a user can't 'double follow' the same user.
     """
     owner = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='following'
+        User, related_name='following', on_delete=models.CASCADE
     )
     followed = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='followed'
-        )
+        User, related_name='followed', on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
