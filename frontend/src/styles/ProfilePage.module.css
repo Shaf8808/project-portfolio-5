@@ -1,0 +1,19 @@
+.ProfileImage {
+  object-fit: cover;
+  height: 120px;
+  width: 120px;
+  margin: 4px;
+}
+
+@media screen and (max-width: 991px) {
+  .ProfileImage {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.OwnerTab {
+  margin-top: 15px;
+  background-color: #343a40;
+  color: aliceblue;
+}

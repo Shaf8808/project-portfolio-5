@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.App {
+  font-family: "DM Sans", sans-serif;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.Main {
+  padding-top: 81px;
+}
+
+.Content {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #dadadf;
+}
+
+.FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.ProfileHeader {
+  font-family: 'Bebas Neue', sans-serif;;
+  font-size: 2rem;
+  padding-top: 13px;
+}
+
+.ProfileOwner {
+  font-family: 'Bebas Neue', sans-serif;;
+  font-size: 2rem;
+}
+
+.hr {
+  border-color: #ffffff;
+  border-style: inset;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #ffffff;
+  transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+  color: #47c3f8;
+  text-decoration: none;
+}
+
+a:hover i {
+  color: #47c3f8;
+  transition: color ease-in-out 0.3s;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+i {
+  color: #cfced3;
+  font-size: 1.6rem;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #47c3f8;
+}
+
+.SadIcon:hover {
+  color: #555;
+  cursor:auto;
+}
+
+.ProfilesTab {
+  background-color: #343a40;
+  color: #ffffff;
+  border-radius: 25px;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
