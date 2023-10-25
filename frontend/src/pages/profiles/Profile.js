@@ -17,16 +17,21 @@ const Profile = (props) => {
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
-    <div className={`my-3 pb-2 d-flex align-items-left ${mobile}`}>
-      <div>
+    <div
+      className={`my-3 pb-1 d-flex align-items-left ${mobile} ${styles.Profile}`}
+    >
+      <div className="mt-2">
         <Link className="align-self-left" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
       </div>
       <div className={`mx-2 pt-2 ${styles.WordBreak}`}>
-        <strong>{owner}</strong>
+        <Link to={`/profiles/${id}`}>
+          <strong>{owner}</strong>
+          <p>Followers: {profile?.followers_count}</p>
+        </Link>
       </div>
-      <div className={"text-right ml-auto pt-1"}>
+      <div className={"text-right ml-auto pt-3"}>
         {/* Checks if the user is NOT on mobile, is logged in and
         is NOT the owner of the profile */}
         {currentUser &&
