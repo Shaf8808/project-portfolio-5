@@ -25,6 +25,7 @@ function PostPage() {
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
+
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
@@ -40,6 +41,7 @@ function PostPage() {
         ]);
         // Sets results to post
         setPost({ results: [post] });
+
         setComments(comments);
       } catch (error) {
         // console.log(error);
@@ -54,6 +56,16 @@ function PostPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
+        {/* Checks that the post existed before 
+        trying to display it in the container */}
+        {post.results.length > 0 && (
+          <Container className={appStyles.Content}>
+            {/* Post is saved in the results array, 
+            so we have go through there to get to the
+            content  */}
+            {post.results[0].content}
+          </Container>
+        )}
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
