@@ -14,12 +14,16 @@
 }
 
 .PostImage {
-  border-radius: 45px;
+  border-radius: 55px;
   padding: 1px 15px 15px 15px
 }
 
-.hr {
-  margin-bottom: 0;
+hr {
+  border-color: #ffffff;
+}
+
+.Line {
+  border-color: rgb(203, 202, 202);
 }
 
 .Link {
