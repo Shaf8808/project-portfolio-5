@@ -109,7 +109,7 @@ const Post = (props) => {
             )}
           </div>
         </Media>
-        <hr className={styles.hr} />
+        <hr className={styles.Line} />
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img className={styles.PostImage} src={image} alt={title} />
@@ -117,6 +117,7 @@ const Post = (props) => {
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
         {title && <Card.Title className="text-center">{title}</Card.Title>}
+        <hr />
         {content && <Card.Text>{content}</Card.Text>}
         {/* Start of ternary/conditional statement */}
         {is_owner ? (
