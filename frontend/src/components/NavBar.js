@@ -33,16 +33,6 @@ const NavBar = () => {
     }
   };
 
-  const addPostIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i className="far fa-plus-square"></i>Add post
-    </NavLink>
-  );
-
   // Displays username if a user is logged in
   const loggedInIcons = (
     <>
@@ -102,12 +92,22 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/">
-          <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
-          </Navbar.Brand>
-        </NavLink>
-        {currentUser && addPostIcon}
+        {currentUser ? (
+          <NavLink to="/posts/create">
+            <Navbar.Brand>
+              <img src={logo} alt="logo" height="45" />
+            </Navbar.Brand>
+          </NavLink>
+        ) : (
+          <NavLink to="/">
+            <Navbar.Brand>
+              <img src={logo} alt="logo" height="45" />
+            </Navbar.Brand>
+          </NavLink>
+        )}
+        <h4 className="mr-3 mt-1" style={{ color: "white" }}>
+          Bloggerize
+        </h4>
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
