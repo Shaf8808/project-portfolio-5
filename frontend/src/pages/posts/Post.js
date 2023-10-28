@@ -18,7 +18,6 @@ const Post = (props) => {
     likes_count,
     like_id,
     title,
-    content,
     image,
     updated_at,
     postPage,
@@ -118,7 +117,6 @@ const Post = (props) => {
         {/* Only renders the elements <Card.Title> if the title data is present */}
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         <hr />
-        {content && <Card.Text>{content}</Card.Text>}
         {/* Start of ternary/conditional statement */}
         {is_owner ? (
           // Displays a message if it's the owner of the post
