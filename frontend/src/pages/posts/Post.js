@@ -115,40 +115,46 @@ const Post = (props) => {
       </Link>
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        <div className={styles.HeartIcon}>
+          {title && <Card.Title className="text-center">{title}</Card.Title>}
+
+          {/* Start of ternary/conditional statement for likes */}
+          <div>
+            {is_owner ? (
+              // Displays a message if it's the owner of the post
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            ) : // Checks if the user has already liked the post
+            // and allows them to unlike a post
+            like_id ? (
+              <span onClick={handleUnlike}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
+            ) : // Checks if the user has logged in and lets them like
+            // the post
+            currentUser ? (
+              <span onClick={handleLike}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
+            ) : (
+              // This message is for the user who is not logged in
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            )}
+            {/* Displays the number of likes and comments of the post */}
+            {likes_count}
+          </div>
+        </div>
+
         <hr />
-        {/* Start of ternary/conditional statement */}
-        {is_owner ? (
-          // Displays a message if it's the owner of the post
-          <OverlayTrigger
-            placement="top"
-            overlay={<Tooltip>You can't like your own post!</Tooltip>}
-          >
-            <i className="far fa-heart" />
-          </OverlayTrigger>
-        ) : // Checks if the user has already liked the post
-        // and allows them to unlike a post
-        like_id ? (
-          <span onClick={handleUnlike}>
-            <i className={`fas fa-heart ${styles.Heart}`} />
-          </span>
-        ) : // Checks if the user has logged in and lets them like
-        // the post
-        currentUser ? (
-          <span onClick={handleLike}>
-            <i className={`far fa-heart ${styles.HeartOutline}`} />
-          </span>
-        ) : (
-          // This message is for the user who is not logged in
-          <OverlayTrigger
-            placement="top"
-            overlay={<Tooltip>Log in to like posts!</Tooltip>}
-          >
-            <i className="far fa-heart" />
-          </OverlayTrigger>
-        )}
-        {/* Displays the number of likes and comments of the post */}
-        {likes_count}
         <Link to={`/posts/${id}`}>
           <i className="far fa-comments" />
         </Link>
