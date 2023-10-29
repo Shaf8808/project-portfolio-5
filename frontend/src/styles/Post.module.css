@@ -18,6 +18,15 @@
   padding: 1px 15px 15px 15px
 }
 
+.Content {
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  border: 1px solid #a2a1a1;
+}
+
 .HeartIcon {
   display: flex;
   align-items: center;
