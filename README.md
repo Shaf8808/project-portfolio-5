@@ -5,6 +5,10 @@ Clicking the logo on the Navbar directs signed in users to the post creation for
 
 Slogan maybe? - A place for your thoughts
 
+Link:
+
+https://django-rest-api-de0173352397.herokuapp.com/
+
 Credits
 
 Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
