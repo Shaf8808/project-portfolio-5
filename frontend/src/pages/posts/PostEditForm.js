@@ -16,6 +16,9 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -61,6 +64,17 @@ function PostEditForm() {
     setPostData({
       ...postData,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  // Function for React Quill onChange attribute
+  // Matches value to content
+  const handleChangeContent = (value) => {
+    setPostData((prev) => {
+      return {
+        ...prev,
+        content: value,
+      };
     });
   };
 
@@ -130,12 +144,10 @@ function PostEditForm() {
       ))}
       <Form.Group>
         <Form.Label>Content</Form.Label>
-        <Form.Control
-          as="textarea"
-          name="content"
-          rows={6}
+        <ReactQuill
+          theme="snow"
           value={content}
-          onChange={handleChange}
+          onChange={handleChangeContent}
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
@@ -157,7 +169,7 @@ function PostEditForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Row>
+      <Row className="d-flex justify-content-center">
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
@@ -190,11 +202,8 @@ function PostEditForm() {
                 {message}
               </Alert>
             ))}
-            <div className="d-md-none">{textFields}</div>
+            <div className="text-center">{textFields}</div>
           </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
