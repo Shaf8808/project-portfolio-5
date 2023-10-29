@@ -118,6 +118,7 @@ function PostCreateForm() {
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <ReactQuill
+          className={styles.QlContainer}
           theme="snow"
           value={content}
           onChange={handleChangeContent}
