@@ -18,6 +18,12 @@
   padding: 1px 15px 15px 15px
 }
 
+.HeartIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 hr {
   border-color: #ffffff;
 }
