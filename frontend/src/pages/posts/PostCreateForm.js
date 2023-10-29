@@ -121,6 +121,7 @@ function PostCreateForm() {
           theme="snow"
           value={content}
           onChange={handleChangeContent}
+          placeholder={"A canvas for your thoughts..."}
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
