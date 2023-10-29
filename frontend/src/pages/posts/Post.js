@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -116,7 +117,11 @@ const Post = (props) => {
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
         <div className={styles.HeartIcon}>
-          {title && <Card.Title className="text-center">{title}</Card.Title>}
+          {title && (
+            <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
+              {title}
+            </Card.Title>
+          )}
 
           {/* Start of ternary/conditional statement for likes */}
           <div>
