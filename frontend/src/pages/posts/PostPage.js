@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/Post.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
@@ -68,7 +69,7 @@ function PostPage() {
         {/* Checks that the post existed before 
         trying to display it in the container */}
         {post.results.length > 0 && (
-          <Container className={appStyles.Content}>
+          <Container className={styles.Content}>
             {/* Post is saved in the results array, 
             so we have go through there to get to the
             content  */}
