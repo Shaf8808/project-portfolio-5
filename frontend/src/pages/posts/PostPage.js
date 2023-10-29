@@ -16,12 +16,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import parse from "html-react-parser";
 
 function PostPage() {
   // Accesses the post id passed in the url route
   const { id } = useParams();
   //   Covers both a single post object, or an array of multiple posts
   const [post, setPost] = useState({ results: [] });
+  // Variables for displaying parsed content
+  const [content, setContent] = useState("");
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
@@ -41,6 +44,8 @@ function PostPage() {
         ]);
         // Sets results to post
         setPost({ results: [post] });
+        // Calls function below
+        parseContent(post.content);
 
         setComments(comments);
       } catch (error) {
@@ -50,6 +55,12 @@ function PostPage() {
     // Runs this function everytime the post id changes in the url
     handleMount();
   }, [id]);
+
+  // Function for parsing content
+  const parseContent = (postContent) => {
+    let newContent = parse(postContent);
+    setContent(newContent);
+  };
 
   return (
     <Row className="h-100">
@@ -63,7 +74,7 @@ function PostPage() {
             {/* Post is saved in the results array, 
             so we have go through there to get to the
             content  */}
-            {post.results[0].content}
+            {content}
           </Container>
         )}
         <Container className={appStyles.Content}>
