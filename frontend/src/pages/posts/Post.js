@@ -8,6 +8,8 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { AdminDropdown } from "../../components/AdminDropdown";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const Post = (props) => {
   const {
@@ -21,7 +23,6 @@ const Post = (props) => {
     title,
     image,
     updated_at,
-    postPage,
     setPosts,
   } = props;
 
@@ -31,6 +32,10 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  const location = useLocation();
+
+  const is_admin = currentUser?.username === "theadmin";
+
   // Function to redirect users to the edit form page
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -39,7 +44,13 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+
+      if (location.pathname.indexOf("/posts/") === 0) {
+        history.goBack();
+        console.log();
+      } else {
+        window.location.reload();
+      }
     } catch (error) {
       // console.log(error);
     }
@@ -101,11 +112,15 @@ const Post = (props) => {
             <span>{updated_at}</span>
             {/* Display edit/delete button if it's the owner of
             the post and the postPage prop exists */}
-            {is_owner && postPage && (
+            {is_owner ? (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
+            ) : is_admin ? (
+              <AdminDropdown handleDelete={handleDelete} />
+            ) : (
+              <></>
             )}
           </div>
         </Media>
