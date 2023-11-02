@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import logo from "../../assets/logo.png";
 
 import {
   Form,
@@ -144,10 +145,7 @@ const SignUpForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
-        />
+        <Image className={`${appStyles.FillerImage}`} src={logo} />
       </Col>
     </Row>
   );

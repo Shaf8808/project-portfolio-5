@@ -18,7 +18,7 @@
 }
 
 .FillerImage {
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
   width: 100%;
 }
@@ -30,13 +30,15 @@
 }
 
 .ProfileHeader {
-  font-family: 'Bebas Neue', sans-serif;;
+  font-family: 'Bebas Neue', sans-serif;
+  ;
   font-size: 2rem;
   padding-top: 13px;
 }
 
 .ProfileOwner {
-  font-family: 'Bebas Neue', sans-serif;;
+  font-family: 'Bebas Neue', sans-serif;
+  ;
   font-size: 2rem;
 }
 
@@ -83,7 +85,7 @@ i:hover {
 
 .SadIcon:hover {
   color: #555;
-  cursor:auto;
+  cursor: auto;
 }
 
 .ProfilesTab {
@@ -101,12 +103,15 @@ figure {
 *::-webkit-scrollbar {
   width: 5px;
 }
+
 *::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 *::-webkit-scrollbar-thumb {
   background: #888;
 }
+
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

@@ -17,6 +17,7 @@ import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimeStamp } from "../../utils/utils";
+import logo from "../../assets/logo.png";
 
 function SignInForm() {
   // Use context function, imports callback function setCurentuser from
@@ -120,10 +121,7 @@ function SignInForm() {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
-        />
+        <Image className={`${appStyles.FillerImage}`} src={logo} />
       </Col>
     </Row>
   );
