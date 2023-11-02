@@ -7,6 +7,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
+import { AdminDropdown } from "../../components/AdminDropdown";
 
 const Comment = (props) => {
   const {
@@ -27,6 +28,8 @@ const Comment = (props) => {
   const currentUser = useCurrentUser();
   // Checks if the username of the current user matches the post's owner
   const is_owner = currentUser?.username === owner;
+
+  const is_admin = currentUser?.username === "theadmin";
 
   // Function for deleting comments
   const handleDelete = async () => {
@@ -77,13 +80,17 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
         </Media.Body>
-        {is_owner && !showEditForm && (
+        {is_owner && !showEditForm ? (
           <MoreDropdown
             // set show edit form is set to true so the edit
             // form is displayed once the icon is clicked
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
           />
+        ) : is_admin ? (
+          <AdminDropdown handleDelete={handleDelete} />
+        ) : (
+          <></>
         )}
       </Media>
     </>
