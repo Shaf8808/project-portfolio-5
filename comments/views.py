@@ -3,6 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
+from rest_framework.permissions import IsAdminUser
 
 
 class CommentList(generics.ListCreateAPIView):
@@ -40,5 +41,5 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     # This is so we don't have to enter the post id
     # every time we want to update a comment
     serializer_class = CommentDetailSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [(IsOwnerOrReadOnly | IsAdminUser)]
     queryset = Comment.objects.all()
