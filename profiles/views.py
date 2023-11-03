@@ -16,6 +16,7 @@ class ProfileList(generics.ListAPIView):
         # Double underscore is used to connect profile
         # data model (owner) to post model through the user data model
         posts_count=Count('owner__post', distinct=True),
+        gaming_count=Count('owner__gaming', distinct=True),
         # Using related names in models.py to reference each field
         # (following and followed)
         followers_count=Count('owner__followed', distinct=True),
@@ -35,6 +36,7 @@ class ProfileList(generics.ListAPIView):
     # Filter fields
     ordering_fields = [
         'posts_count',
+        'gaming_count',
         'followers_count',
         'following_count',
         # How recently they have followed as well as being followed
@@ -53,6 +55,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         # Double underscore is used to connect profile
         # data model (owner) to post model through the user data model
         posts_count=Count('owner__post', distinct=True),
+        gaming_count=Count('owner__gaming', distinct=True),
         # Using related names in models.py to reference each field
         # (following and followed)
         followers_count=Count('owner__followed', distinct=True),
