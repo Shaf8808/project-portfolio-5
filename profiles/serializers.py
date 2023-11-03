@@ -8,6 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()  # A read-only field that shows if a user is the owner of a profile
     following_id = serializers.SerializerMethodField()
     posts_count = serializers.ReadOnlyField()
+    gaming_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
 
@@ -35,4 +36,5 @@ class ProfileSerializer(serializers.ModelSerializer):
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'content', 'image', 'is_owner', 'following_id',
             'posts_count', 'followers_count', 'following_count',
+            'gaming_count',
         ]
