@@ -26,7 +26,7 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 
             'profile_image', 'post', 'created_at',
-            'updated_at', 'content' 
+            'updated_at', 'content', 'gaming' 
         ]
 
 
@@ -37,3 +37,4 @@ class CommentDetailSerializer(CommentSerializer):
     it's id every time we want to update a comment
     """
     post = serializers.ReadOnlyField(source='post.id')
+    gaming = serializers.ReadOnlyField(source='gaming.id')
