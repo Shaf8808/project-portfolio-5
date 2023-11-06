@@ -9,6 +9,8 @@ An admin can delete posts and comments
 
 Added gaming data model
 
+Had to delete ALL migration files including pycache as well as reset ElephantSQL database in order to successfully migrate my data models.
+
 Live link:
 
 https://django-rest-api-de0173352397.herokuapp.com/

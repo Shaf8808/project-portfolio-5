@@ -17,6 +17,8 @@ class ProfileList(generics.ListAPIView):
         # data model (owner) to post model through the user data model
         posts_count=Count('owner__post', distinct=True),
         gaming_count=Count('owner__gaming', distinct=True),
+        sport_count=Count('owner__sport', distinct=True),
+        food_count=Count('owner__food', distinct=True),
         # Using related names in models.py to reference each field
         # (following and followed)
         followers_count=Count('owner__followed', distinct=True),
@@ -37,6 +39,8 @@ class ProfileList(generics.ListAPIView):
     ordering_fields = [
         'posts_count',
         'gaming_count',
+        'sport_count',
+        'food_count',
         'followers_count',
         'following_count',
         # How recently they have followed as well as being followed
@@ -56,6 +60,8 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         # data model (owner) to post model through the user data model
         posts_count=Count('owner__post', distinct=True),
         gaming_count=Count('owner__gaming', distinct=True),
+        sport_count=Count('owner__sport', distinct=True),
+        food_count=Count('owner__food', distinct=True),
         # Using related names in models.py to reference each field
         # (following and followed)
         followers_count=Count('owner__followed', distinct=True),

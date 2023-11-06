@@ -89,10 +89,13 @@ INSTALLED_APPS = [
 
     'profiles',
     'posts',
+    'gaming',
+    'sport',
+    'food',
     'comments',
     'likes',
     'followers',
-    'gaming',
+    
 ]
 
 SITE_ID = 1
