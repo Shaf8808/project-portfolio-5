@@ -18,3 +18,5 @@ https://django-rest-api-de0173352397.herokuapp.com/
 Credits
 
 Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
+
+https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
