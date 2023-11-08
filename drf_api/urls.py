@@ -32,9 +32,6 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('likes.urls')),
     path('api/', include('followers.urls')),
-    path('api/', include('gaming.urls')),
-    path('api/', include('sport.urls')),
-    path('api/', include('food.urls')),
 ]
 
 # Allows React to handle 404 errors
