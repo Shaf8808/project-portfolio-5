@@ -21,6 +21,7 @@ const Post = (props) => {
     likes_count,
     like_id,
     title,
+    excerpt,
     image,
     updated_at,
     setPosts,
@@ -175,10 +176,19 @@ const Post = (props) => {
         </div>
 
         <hr />
-        <Link to={`/posts/${id}`}>
-          <i className="far fa-comments" />
-        </Link>
-        {comments_count}
+        <div className={styles.HeartIcon}>
+          {excerpt && (
+            <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
+              {excerpt}
+            </Card.Title>
+          )}
+          <div>
+            <Link to={`/posts/${id}`}>
+              <i className="far fa-comments" />
+            </Link>
+            {comments_count}
+          </div>
+        </div>
       </Card.Body>
     </Card>
   );

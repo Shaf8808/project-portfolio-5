@@ -24,11 +24,12 @@ function PostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    excerpt: "",
     content: "",
     image: "",
   });
 
-  const { title, content, image } = postData;
+  const { title, content, image, excerpt } = postData;
 
   // References the image form.file element
   const imageInput = useRef(null);
@@ -44,11 +45,11 @@ function PostEditForm() {
       try {
         // Retrieves specific post with it's id
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, excerpt, content, image, is_owner } = data;
         // Checks if the user is the post owner, before updating
         // the fields below
         is_owner
-          ? setPostData({ title, content, image })
+          ? setPostData({ title, excerpt, content, image })
           : // If the user isn't the post owner, redirects to homepage
             history.push("/");
       } catch (err) {
@@ -98,6 +99,7 @@ function PostEditForm() {
 
     // Assign each type of data to the correct variable defined above
     formData.append("title", title);
+    formData.append("excerpt", excerpt);
     formData.append("content", content);
 
     // First checks if the image input element already has a file in it
@@ -138,6 +140,21 @@ function PostEditForm() {
       </Form.Group>
       {/* Displays errors */}
       {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Excerpt</Form.Label>
+        <Form.Control
+          type="text"
+          name="excerpt"
+          value={excerpt}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {/* Displays errors */}
+      {errors?.excerpt?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

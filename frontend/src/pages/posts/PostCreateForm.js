@@ -29,11 +29,12 @@ function PostCreateForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    excerpt: "",
     content: "",
     image: "",
   });
 
-  const { title, content, image } = postData;
+  const { title, content, image, excerpt } = postData;
 
   // References the image form.file element
   const imageInput = useRef(null);
@@ -79,6 +80,7 @@ function PostCreateForm() {
 
     // Assign each type of data to the correct variable defined above
     formData.append("title", title);
+    formData.append("excerpt", excerpt);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
@@ -111,6 +113,21 @@ function PostCreateForm() {
       </Form.Group>
       {/* Displays errors */}
       {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Excerpt</Form.Label>
+        <Form.Control
+          type="text"
+          name="excerpt"
+          value={excerpt}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {/* Displays errors */}
+      {errors?.excerpt?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
