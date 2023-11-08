@@ -14,8 +14,7 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = [
-            'id', 'owner', 'post', 'created_at', 'gaming',
-            'sport', 'food'
+            'id', 'owner', 'post', 'created_at'
         ]
 
     def create(self, validated_data):

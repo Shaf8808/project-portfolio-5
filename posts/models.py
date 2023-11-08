@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Categories(models.Model):
+    name = models.CharField(max_length=100)
+    friendly_name = models.CharField(max_length=150)
+
 
 class Post(models.Model):
     """
@@ -27,6 +31,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
+    category = models.ForeignKey(
+        "Categories", on_delete=models.SET_NULL, null=True
+    )
     excerpt = models.TextField(blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
