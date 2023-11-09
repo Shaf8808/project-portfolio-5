@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -108,6 +108,20 @@ const NavBar = () => {
         <h4 className="mr-3 mt-1" style={{ color: "white" }}>
           Bloggerize
         </h4>
+        <NavDropdown title="Categories" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/category/:id">World</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Environment</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Technology</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Design</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Culture</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Business</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Politics</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Opinion</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Science</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Health</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Style</NavDropdown.Item>
+          <NavDropdown.Item to="/category/:id">Travel</NavDropdown.Item>
+        </NavDropdown>
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
