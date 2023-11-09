@@ -28,13 +28,14 @@ function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
+    category: "",
     title: "",
     excerpt: "",
     content: "",
     image: "",
   });
 
-  const { title, content, image, excerpt } = postData;
+  const { category, title, content, image, excerpt } = postData;
 
   // References the image form.file element
   const imageInput = useRef(null);
@@ -79,6 +80,7 @@ function PostCreateForm() {
     const formData = new FormData();
 
     // Assign each type of data to the correct variable defined above
+    formData.append("category", category);
     formData.append("title", title);
     formData.append("excerpt", excerpt);
     formData.append("content", content);
@@ -117,6 +119,36 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          name="category"
+          value={category}
+          onChange={handleChange}
+        >
+          <option>World</option>
+          <option>Environment</option>
+          <option>Technology</option>
+          <option>Design</option>
+          <option>Culture</option>
+          <option>Business</option>
+          <option>Politics</option>
+          <option>Opinion</option>
+          <option>Science</option>
+          <option>Health</option>
+          <option>Style</option>
+          <option>Travel</option>
+        </Form.Control>
+      </Form.Group>
+      {/* Displays errors */}
+      {errors?.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
         <Form.Label>Excerpt</Form.Label>
         <Form.Control
