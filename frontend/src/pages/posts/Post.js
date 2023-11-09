@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Post.module.css";
 import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -20,6 +20,7 @@ const Post = (props) => {
     comments_count,
     likes_count,
     like_id,
+    category,
     title,
     excerpt,
     image,
@@ -132,6 +133,13 @@ const Post = (props) => {
       </Link>
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
+        {category && (
+          <h4 className="text-left">
+            <Badge pill variant="primary">
+              {category}
+            </Badge>
+          </h4>
+        )}
         <div className={styles.HeartIcon}>
           {title && (
             <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
@@ -177,11 +185,7 @@ const Post = (props) => {
 
         <hr />
         <div className={styles.HeartIcon}>
-          {excerpt && (
-            <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
-              {excerpt}
-            </Card.Title>
-          )}
+          {excerpt && <Card.Title>{excerpt}</Card.Title>}
           <div>
             <Link to={`/posts/${id}`}>
               <i className="far fa-comments" />
