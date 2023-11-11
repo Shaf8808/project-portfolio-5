@@ -1,9 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Categories(models.Model):
-    name = models.CharField(max_length=100)
-    friendly_name = models.CharField(max_length=150)
+class Categories(models.TextChoices):
+    WORLD = 'world'
+    ENVIRONMENT = 'environment'
+    TECHNOLOGY = 'technology'
+    DESIGN = 'design'
+    CULTURE = 'culture'
+    BUSINESS = 'business'
+    POLITICS = 'politics'
+    OPINION = 'opinion'
+    SCIENCE = 'science'
+    HEALTH = 'health'
+    STYLE = 'style'
+    TRAVEL = 'travel'
 
 
 class Post(models.Model):
@@ -31,9 +41,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    category = models.ForeignKey(
-        "Categories", on_delete=models.SET_NULL, null=True
-    )
+    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.WORLD)
     excerpt = models.TextField(blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
