@@ -155,18 +155,18 @@ function PostEditForm() {
           value={category}
           onChange={handleChange}
         >
-          <option>World</option>
-          <option>Environment</option>
-          <option>Technology</option>
-          <option>Design</option>
-          <option>Culture</option>
-          <option>Business</option>
-          <option>Politics</option>
-          <option>Opinion</option>
-          <option>Science</option>
-          <option>Health</option>
-          <option>Style</option>
-          <option>Travel</option>
+          <option value="world">World</option>
+          <option value="environment">Environment</option>
+          <option value="technology">Technology</option>
+          <option value="design">Design</option>
+          <option value="culture">Culture</option>
+          <option value="business">Business</option>
+          <option value="politics">Politics</option>
+          <option value="opinion">Opinion</option>
+          <option value="science">Science</option>
+          <option value="health">Health</option>
+          <option value="style">Style</option>
+          <option value="travel">Travel</option>
         </Form.Control>
       </Form.Group>
       {/* Displays errors */}
