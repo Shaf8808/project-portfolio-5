@@ -1,10 +1,26 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAdminUser
 from .models import Post
 from .serializers import PostSerializer
+
+class CategoryView(generics.ListCreateAPIView):
+    serializer_class=PostSerializer
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    queryset= Post.objects.all()
+
+    def post(self, request, format=None):
+        data = self.request.data
+        category = data['category']
+        queryset = Post.objects.order_by('-created_at').filter(category__iexact=category)
+
+        serializer = PostSerializer(queryset, many=True)
+
+        return Response(serializer.data)
+
 
 
 class PostList(generics.ListCreateAPIView):
