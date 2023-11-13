@@ -49,7 +49,8 @@ class PostList(generics.ListCreateAPIView):
         # Displays the posts liked by the user
         'likes__owner__profile',
         # Displays all the posts of a profile 
-        'owner__profile'
+        'owner__profile',
+        'category'
     ]
 
     search_fields = [
