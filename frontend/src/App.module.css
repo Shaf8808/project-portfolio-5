@@ -99,6 +99,27 @@ figure {
   display: inline-block;
 }
 
+/* Scroll button */
+
+.ScrollButton {
+  display: flex;
+  border-radius: 25px;
+  position: fixed;
+  bottom: 41px;
+  height: 32px;
+  font-size: 1.5rem;
+  z-index: 1;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ButtonPosition {
+  display: flex;
+  justify-content: center;
+}
+
+
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;

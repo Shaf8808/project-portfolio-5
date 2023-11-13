@@ -15,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
+import ScrollButton from "./components/ScrollButton";
 
 function App() {
   // This is to identify the current user so the profiles
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
+      <ScrollButton />
       <Container className={styles.Main}>
         <Switch>
           <Route

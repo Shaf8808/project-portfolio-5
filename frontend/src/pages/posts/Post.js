@@ -133,13 +133,7 @@ const Post = (props) => {
       </Link>
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
-        {category && (
-          <h4 className="text-left">
-            <Badge pill variant="primary">
-              {category}
-            </Badge>
-          </h4>
-        )}
+
         <div className={styles.HeartIcon}>
           {title && (
             <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
@@ -182,6 +176,13 @@ const Post = (props) => {
             {likes_count}
           </div>
         </div>
+        {category && (
+          <h4 className="text-left">
+            <Badge pill variant="primary">
+              {category}
+            </Badge>
+          </h4>
+        )}
 
         <hr />
         <div className={styles.HeartIcon}>

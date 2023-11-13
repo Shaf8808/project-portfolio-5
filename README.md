@@ -19,4 +19,6 @@ Credits
 
 Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
 
-https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
+Blog example - https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
+
+Categories data model - https://github.com/linkedweb/blog_lyfe/tree/main
