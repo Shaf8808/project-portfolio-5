@@ -39,6 +39,13 @@ function App() {
           />
           <Route
             exact
+            path="/category/:type"
+            render={() => (
+              <PostsPage message="No results found under this category." />
+            )}
+          />
+          <Route
+            exact
             path="/feed"
             render={() => (
               <PostsPage
