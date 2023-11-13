@@ -109,18 +109,68 @@ const NavBar = () => {
           Bloggerize
         </h4>
         <NavDropdown title="Categories" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/category/:id">World</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Environment</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Technology</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Design</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Culture</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Business</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Politics</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Opinion</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Science</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Health</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Style</NavDropdown.Item>
-          <NavDropdown.Item to="/category/:id">Travel</NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/world">
+              World
+            </NavLink>
+          </NavDropdown.Item>
+
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/environment">
+              Environment
+            </NavLink>
+          </NavDropdown.Item>
+
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/technology">
+              Technology
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/design">
+              Design
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/culture">
+              Culture
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/business">
+              Business
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/politics">
+              Politics
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/opinion">
+              Opinion
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/science">
+              Science
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/health">
+              Health
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/style">
+              Style
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/travel">
+              Travel
+            </NavLink>
+          </NavDropdown.Item>
         </NavDropdown>
         <Navbar.Toggle
           ref={ref}
