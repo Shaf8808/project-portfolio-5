@@ -22,3 +22,7 @@ Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
 Blog example - https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
 
 Categories data model - https://github.com/linkedweb/blog_lyfe/tree/main
+
+ScrollButton component - https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
+
+Capitalize first letter - https://stackoverflow.com/questions/48387180/is-it-possible-to-capitalize-first-letter-of-text-string-in-react-native-how-to
