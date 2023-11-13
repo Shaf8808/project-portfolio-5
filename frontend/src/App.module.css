@@ -112,6 +112,9 @@ figure {
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Bebas Neue',
+    sans-serif;
+  ;
 }
 
 .ButtonPosition {
