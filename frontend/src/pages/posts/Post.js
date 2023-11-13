@@ -38,6 +38,12 @@ const Post = (props) => {
 
   const is_admin = currentUser?.username === "theadmin";
 
+  // Function to capitalize first letter of category
+  // displayed in a badge
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   // Function to redirect users to the edit form page
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -179,7 +185,7 @@ const Post = (props) => {
         {category && (
           <h4 className="text-left">
             <Badge pill variant="primary">
-              {category}
+              {capitalize(category)}
             </Badge>
           </h4>
         )}
