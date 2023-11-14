@@ -43,6 +43,7 @@ function PostCreateForm() {
   // Used to redirect users to different pages
   const history = useHistory();
 
+  // Toolbar options module for React Quill editor
   var toolbarOptions = [
     [{ header: "1" }, { header: "2" }, { font: [] }],
     [{ size: [] }],

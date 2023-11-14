@@ -40,6 +40,24 @@ function PostEditForm() {
   // Used to get the id parameter out of the url
   const { id } = useParams();
 
+  // Toolbar options module for React Quill editor
+  var toolbarOptions = [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "video"],
+    ["clean"],
+  ];
+  const module = {
+    toolbar: toolbarOptions,
+  };
+
   // Function for editing posts
   useEffect(() => {
     const handleMount = async () => {
@@ -195,6 +213,7 @@ function PostEditForm() {
         <Form.Label>Content</Form.Label>
         <ReactQuill
           theme="snow"
+          modules={module}
           value={content}
           onChange={handleChangeContent}
         />
