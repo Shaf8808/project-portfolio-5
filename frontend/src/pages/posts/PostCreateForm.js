@@ -43,6 +43,23 @@ function PostCreateForm() {
   // Used to redirect users to different pages
   const history = useHistory();
 
+  var toolbarOptions = [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "video"],
+    ["clean"],
+  ];
+  const module = {
+    toolbar: toolbarOptions,
+  };
+
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -167,6 +184,7 @@ function PostCreateForm() {
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <ReactQuill
+          modules={module}
           className={styles.QlContainer}
           theme="snow"
           value={content}
