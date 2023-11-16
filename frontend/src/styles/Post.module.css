@@ -56,3 +56,9 @@ h5 {
 .HeartOutline:hover {
   color: #f85032;
 }
+
+@media only screen and (max-width: 425px) {
+  .PostPadding {
+    padding-top: 40px;
+  }
+}

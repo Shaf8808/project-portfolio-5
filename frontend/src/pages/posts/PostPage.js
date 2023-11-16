@@ -65,7 +65,9 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2 col-lg-12" lg={8}>
-        <Post {...post.results[0]} setPosts={setPost} postPage />
+        <div className={styles.PostPadding}>
+          <Post {...post.results[0]} setPosts={setPost} postPage />
+        </div>
         {/* Checks that the post existed before 
         trying to display it in the container */}
         {post.results.length > 0 && (

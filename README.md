@@ -5,7 +5,9 @@ Clicking the logo on the Navbar directs signed in users to the post creation for
 
 Talk about npm parser and React Quill usage in my application
 
-An admin can delete posts and comments
+Talk about how an admin can delete posts and comments
+
+Talk about how users can search through titles, usernames as well as categories of posts
 
 Added gaming data model
 
