@@ -54,8 +54,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
 
       if (location.pathname.indexOf("/posts/") === 0) {
-        history.goBack();
-        console.log();
+        history.push("/");
       } else {
         window.location.reload();
       }
