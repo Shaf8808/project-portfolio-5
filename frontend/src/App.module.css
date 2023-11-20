@@ -105,7 +105,7 @@ figure {
   display: flex;
   border-radius: 25px;
   position: fixed;
-  bottom: 41px;
+  top: 100px;
   height: 32px;
   font-size: 1.5rem;
   z-index: 1;
@@ -138,4 +138,10 @@ figure {
 
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width: 406px) {
+  .ScrollButton {
+    top: 132px;
+  }
 }
