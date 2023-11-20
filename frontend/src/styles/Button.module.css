@@ -67,3 +67,9 @@
   background-color: #2ed9ff;
   color: #2142b2;
 }
+
+@media only screen and (max-width: 992px) {
+  .Blue {
+    margin-top: 60px;
+  }
+}
