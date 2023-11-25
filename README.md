@@ -10,35 +10,33 @@ Users can view all of the different categories available by clicking on the Cate
 
 Users can open user profiles after clicking on a users' name or avatar. This page displays the number of posts they made, the number of followers they have, and the number of users they are following themselves. It also provides information about themselves as a sort of introduction as well as their username and avatar. Below this, every post that this user has made on the site is displayed below for the audience to look at and possibly open if they are interested. 
 
+Live link:
+
+https://django-rest-api-de0173352397.herokuapp.com/
+
 
 ## Table of Contents
+
 - [Bloggerize](#bloggerize)
   * [Planning](#planning)
-    + [Data models](#data-models)
-      - [**Profile**](#--profile--)
-      
-  * [API endpoints](#api-endpoints)
+  * [Data models](#data-models)
+    + [Post](#post)
+    + [Categories](#categories)
+    + [Comments](#comments)
+    + [Followers](#followers)
+    + [Likes](#likes)
+    + [Profiles](#profiles)
+  * [API Endpoints](#api-endpoints)
   * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
-    + [django-cloudinary-storage](#django-cloudinary-storage)
-    + [dj-allauth](#dj-allauth)
-    + [dj-rest-auth](#dj-rest-auth)
-    + [djangorestframework-simplejwt](#djangorestframework-simplejwt)
-    + [dj-database-url](#dj-database-url)
-    + [psychopg2](#psychopg2)
-    + [python-dateutil](#python-dateutil)
-    + [django-recurrence](#django-recurrence)
-    + [django-filter](#django-filter)
-    + [django-cors-headers](#django-cors-headers)
   * [Testing](#testing)
-    + [Manual testing](#manual-testing)
-    + [Automated tests](#automated-tests)
-    + [Python validation](#python-validation)
-    + [Resolved bugs](#resolved-bugs)
-      - [Bugs found while testing the API](#bugs-found-while-testing-the-api)
-      - [Bugs found while testing the React front-end](#bugs-found-while-testing-the-react-front-end)
-    + [Unresolved bugs](#unresolved-bugs)
+    + [Manual Testing](#manual-testing)
+  * [Python validation](#python-validation)
+  * [Resolved bugs](#resolved-bugs)
+  * [Unresolved bugs](#unresolved-bugs)
   * [Deployment](#deployment)
   * [Credits](#credits)
+
+Table of contents created using [TOC generator](https://ecotrust-canada.github.io/markdown-toc/)
 
 ## Planning
 
@@ -55,6 +53,8 @@ The custom data models that I created that made the most sense for my specific a
 ### Post
 
 As my application is a blog site, the post data model had to be very different from a regular post data model that was taught by the tutorial via Code Institute. Users were not just going to post simple images that could be liked and commented on by other users. They were going to post full length blogs that included images as well as, should they wish to, embedded video url links that would play within the content section of their blog. As such, the post data model had to be a custom model which included fields such as excerpt and category. The data model that I created can be seen in the diagram below: 
+
+[Back to Top](#table-of-contents)
 
 
 ### Categories
@@ -103,6 +103,8 @@ Finally, I have included a profiles data model which is used for all of the user
 | api/profiles/id/ |  Retrieves, updates and deletes a profile based on it's id and if your the owner  | PUT | Update/Delete | Detail |  
 | **Categories endpoints** |  |  |  |  |
 | api/category/ | Lists all posts with their category as well as creates a post  | GET/POST | Create/Read | List |
+
+[Back to Top](#table-of-contents)
 
 ## Frameworks, libraries and dependencies
 
@@ -154,11 +156,81 @@ This Django app adds Cross-Origin-Resource Sharing (CORS) headers to responses, 
 For converting mp4 files to gif files
 https://cloudconvert.com/
 
+
+[Back to Top](#table-of-contents)
+
 ## Testing
 
 ### Manual Testing
 
-It was important to carry out a series of manual tests for the different endpoints used throughout my project in order to ensure that they all worked as intended. These manual tests were carried out using the Django Rest Framework HTML interface running on the local server and the deployed database. I have documented these tests in a seperate TESTING.md file.
+It was important to carry out a series of manual tests for the different endpoints used throughout my project in order to ensure that they all worked as intended. These manual tests were carried out using the Django Rest Framework HTML interface running on the local server and the deployed database. I have documented these tests in a seperate [TESTING.md](https://github.com/Shaf8808/project-portfolio-5/blob/main/TESTING.md) file.
+
+## Python validation
+
+
+## Resolved bugs
+
+While developing this big project, I came across some bugs that needed to be resolved for the backend API of the site. These issues that I came across are listed below:
+
+- I encountered a bug with my post submission page where once a category was selected, I was shown a 400 error code and a message stating that my chosen category was not a valid choice depending on which category I selected for my post. At first I tried to make adjustments to my post create form page in the frontend as well as the handleChange function that I created within the file, but that didn't work.   
+
+## Unresolved bugs
+
+There are currently no unresolved bugs
+
+## Deployment
+
+The Bloggerize API is deployed to Heroku by utlising a Postgres database through ElephantSQL. The following steps can be taken in order to deploy this API.
+
+- Fork or clone this repository in GitHub.
+- Create a Cloudinary account to host user profile images.
+- Login to Cloudinary.
+- Select the 'dashboard' option.
+- Copy the value of the 'API Environment variable' from the part starting `cloudinary://` to the end. You may need to select the eye icon to view the full environment variable. Paste this value somewhere for safe keeping as you will need it shortly.
+- Log in to Heroku.
+- Select 'Create new app' from the 'New' menu at the top right.
+- Enter a name for the app and select the appropriate region.
+- Select 'Create app'.
+- Select 'Settings' from the menu at the top.
+- Login to ElephantSQL.
+- Click 'Create new instance' on the dashboard.
+- Name the 'plan' and select the 'Tiny Turtle (free)' plan.
+- Select 'select region'.
+- Choose the nearest data centre to your location.
+- Click 'Review'.
+- Go to the ElephantSQL dashboard and click on the 'database instance name' for this project.
+- Copy the ElephantSQL database URL to your clipboard (this starts with `postgres://`).
+- Return to the Heroku dashboard.
+- Select the 'settings' tab.
+- Locate the 'reveal config vars' link and select.
+- Enter the following config var names and values:
+    - `CLOUDINARY_URL`: *your cloudinary URL as obtained above*
+    - `DATABASE_URL`: *your ElephantSQL postgres database URL as obtained above*
+    - `SECRET_KEY`: *your secret key*
+    - `ALLOWED_HOST`: *the url of your Heroku app (but without the `https://` prefix)*
+- Select the 'Deploy' tab at the top.
+- Select 'GitHub' from the deployment options and confirm you wish to deploy using GitHub.
+- Find the 'Connect to GitHub' section and use the search box to locate your project repo.
+- Select 'Connect'
+- Optionally choose the main branch under 'Automatic Deploys' and select 'Enable Automatic Deploys' if you wish your deployed API to be automatically redeployed every time you push changes to GitHub.
+- Find the 'Manual Deploy' section, choose 'main' as the branch to deploy and select 'Deploy Branch'.
+- Your API will shortly be deployed and you will be given a link to the deployed site when the process is complete.
+
+## Credits
+
+Categories data model example - https://github.com/linkedweb/blog_lyfe/tree/main
+
+Blog example - https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
+
+Readme example - https://github.com/andy-guttridge/tribehub_drf/blob/main/README.md
+
+Code Institute Moments app tutorial
+
+Code Institute tutoring
+
+Jubril Akolade- Mentor
+
+[Back to Top](#table-of-contents)
 
 
 
@@ -175,17 +247,12 @@ Talk about how users can search through titles, usernames as well as categories 
 
 Had to delete ALL migration files including pycache as well as reset ElephantSQL database in order to successfully migrate my data models.
 
-Live link:
 
-https://django-rest-api-de0173352397.herokuapp.com/
+
 
 Credits
 
 Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
-
-Blog example - https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/
-
-Categories data model - https://github.com/linkedweb/blog_lyfe/tree/main
 
 ScrollButton component - https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
 

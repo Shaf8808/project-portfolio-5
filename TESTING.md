@@ -11,41 +11,27 @@ This means that only logged in users should be able to create, edit and/or delet
 Additionally, I have also added the option of an administrator (myself) to have the ability to delete posts and comments. The reason why I did this is to filter out any inappropriate or offensive content that some may decide to post on my site in the form of posts or comments. This was also tested during this process.
 
 ## Table of Contents
+- [Bloggerize API Manual Testing](#bloggerize-api-manual-testing)
+  * [Methodology](#methodology)
+  * [Comments endpoints](#comments-endpoints)
+    + [api/comments/](#api-comments-)
+    + [api/comments/id/](#api-comments-id-)
+  * [Followers endpoints](#followers-endpoints)
+    + [api/followers/](#api-followers-)
+    + [api/followers/id/](#api-followers-id-)
+  * [Likes endpoints](#likes-endpoints)
+    + [api/likes/](#api-likes-)
+    + [api/likes/id/](#api-likes-id-)
+  * [Posts endpoints](#posts-endpoints)
+    + [api/posts/](#api-posts-)
+    + [api/posts/id/](#api-posts-id-)
+  * [Profiles endpoints](#profiles-endpoints)
+    + [api/profiles/](#api-profiles-)
+    + [api/profiles/id/](#api-profiles-id-)
+  * [Categories endpoints](#categories-endpoints)
+    + [api/category/](#api-category-)
 
-- [Comments endpoints](#comments-endpoints)
-  * [api/comments/](#api/comments/)
-  * [Test 2](#test-2)
-- [Followers endpoints](#followers-endpoints)
-  * [Test 7](#test-7)
-  * [Test 8](#test-8)
-  * [Test 9](#test-9)
-  * [Test 10](#test-10)
-  * [Test 11](#test-11)
-- [Likes endpoints](#likes-endpoints)
-  * [Test 12](#test-12)
-  * [Test 13](#test-13)
-  * [Test 14](#test-14)
-  * [Test 15](#test-15)
-  * [Test 16](#test-16)
-- [Posts endpoints](#posts-endpoints)
-  * [Test 17](#test-17)
-  * [Test 18](#test-18)
-  * [Test 19](#test-19)
-  * [Test 20](#test-20)
-  * [Test 21](#test-21)
-- [Profiles endpoints](#profiles-endpoints)
-  * [Test 22](#test-22)
-  * [Test 23](#test-23)
-  * [Test 24](#test-24)
-  * [Test 25](#test-25)
-  * [Test 26](#test-26)
-- [Categories endpoints](#categories-endpoints)
-  * [Test 27](#test-27)
-  * [Test 28](#test-28)
-  * [Test 29](#test-29)
-  * [Test 30](#test-30)
-  * [Test 31](#test-31)
-
+Table of contents created using [TOC generator](https://ecotrust-canada.github.io/markdown-toc/)
 
 ## Comments endpoints
 
@@ -67,7 +53,7 @@ When I attempt to post an empty comment, I should see a 400 error code with a su
 
 <img src="docs/backend/images/comment-list-error.png" width=800>
 
-
+[Back to top](#table-of-contents)
 
 ### api/comments/id/
 
@@ -96,6 +82,8 @@ If I attempt to update a comment with an empty field, I am shown a 400 Bad reque
 
 <img src="docs/backend/images/comment-detail-error-2.png" width=800>
 
+[Back to top](#table-of-contents)
+
 
 ## Followers endpoints
 
@@ -112,6 +100,9 @@ A logged in user should be able to both view the followers list as well as be ab
 If a logged in user tries to follow the same user twice however, the API should return a HTTP 400 Bad request error with a suitable error message. This also works as intended and can be seen in the image below. 
 
 <img src="docs/backend/images/follower-list-duplicate.png" width=800>
+
+[Back to top](#table-of-contents)
+
 
 ### api/followers/id/
 
@@ -132,11 +123,23 @@ If a user is logged in and authenticated however, they should have the added opt
 
 <img src="docs/backend/images/likes-list-logged-in.png" width=800>
 
+If I try to like the same post twice however, I should not be allowed to do this and be shown an appropriate error message informing me of a duplicate. This works successfully and can be seen below.
+
+<img src="docs/backend/images/like-list-error.png" width=800>
+
+[Back to top](#table-of-contents)
+
+
 ### api/likes/id/
 
 This endpoint is for a specific like made by a user accessed through it's id which can be viewed by all users. If it's a logged in user, they can also delete a like to represent them 'unliking' a blogpost on the frontend. This can be seen below.
 
-<img src="docs/backend/images/like-detail-logged-in.png" width=800>
+<img src="docs/backend/clips/like-detail-delete.gif" width=800>
+
+If an invalid id is entered into the url, a 404 Not found error status code is returned and displayed to the user, as shown in the image below.
+
+<img src="docs/backend/images/like-detail-error.png" width=800>
+
 
 
 ## Posts endpoints
@@ -155,6 +158,12 @@ The image below shows the data being successfully posted.
 
 <img src="docs/backend/images/post-list-data.png" width=800>
 
+If I attempt to post a blog without anything entered into the title field, I am shown an error message and the post is rejected, as can be seen below.
+
+<img src="docs/backend/images/post-list-error.png" width=800>
+
+[Back to top](#table-of-contents)
+
 
 ### api/posts/id/
 
@@ -166,9 +175,14 @@ If you notice in the image above, I have also edited the post data for my title,
 
 <img src="docs/backend/images/post-detail-data.png" width=800>
 
-I have also tested whether or not the delete method works as intended and successfully deletes a specific post, which it does. This can be seen below which occurred after I deleted the post shown above by the HTTP 204 no content code displayed as a message.
+I have also tested whether or not the delete method works as intended and successfully deletes a specific post, which it does. This can be seen in the gif below.
 
-<img src="docs/backend/images/post-detail-deleted.png" width=800>
+<img src="docs/backend/clips/post-detail-delete.gif" width=800>
+
+If I enter an invalid id into the url bar, a 404 error status code is returned, as seen in the image below.
+
+<img src="docs/backend/images/post-detail-error.png" width=800>
+
 
 
 ## Profiles endpoints
@@ -178,6 +192,9 @@ I have also tested whether or not the delete method works as intended and succes
 The profiles list endpoint should successfully display the same list of all profiles created by users whether they are logged in or not. There is no create view for the profiles-list endpoint as profile creation is handled by django signals. This can be seen below.
 
 <img src="docs/backend/images/profile-list.png" width=800>
+
+[Back to top](#table-of-contents)
+
 
 
 ### api/profiles/id/
@@ -190,6 +207,11 @@ This worked as intended and the result can be seen below.
 
 <img src="docs/backend/images/profile-detail-data.png" width=800>
 
+When I attempt to enter an invalid id, I am shown a 404 error with the message Not Found. This can be seen below.
+
+<img src="docs/backend/images/profile-detail-error.png" width=800>
+
+
 ## Categories endpoints
 
 ### api/category/
@@ -198,9 +220,7 @@ The Category endpoint is the same as the posts endpoint as they are both related
 
 <img src="docs/backend/images/category.png" width=800>
 
-
-## Error handling
-
+[Back to top](#table-of-contents)
 
 
 
