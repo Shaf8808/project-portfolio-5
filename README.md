@@ -10,6 +10,8 @@ Users can view all of the different categories available by clicking on the Cate
 
 Users can open user profiles after clicking on a users' name or avatar. This page displays the number of posts they made, the number of followers they have, and the number of users they are following themselves. It also provides information about themselves as a sort of introduction as well as their username and avatar. Below this, every post that this user has made on the site is displayed below for the audience to look at and possibly open if they are interested. 
 
+The following documentation is the readme for the backend API section of my project. If you wish to access the readme for my React fronted, please click [here]()
+
 Live link:
 
 https://django-rest-api-de0173352397.herokuapp.com/
@@ -167,12 +169,32 @@ It was important to carry out a series of manual tests for the different endpoin
 
 ## Python validation
 
+All of my custom Python files were passed through the [CI Python linter](https://pep8ci.herokuapp.com/) and all passed the validation 
+
 
 ## Resolved bugs
 
 While developing this big project, I came across some bugs that needed to be resolved for the backend API of the site. These issues that I came across are listed below:
 
-- I encountered a bug with my post submission page where once a category was selected, I was shown a 400 error code and a message stating that my chosen category was not a valid choice depending on which category I selected for my post. At first I tried to make adjustments to my post create form page in the frontend as well as the handleChange function that I created within the file, but that didn't work.   
+- I encountered a bug with my post submission page where once a category was selected, I was shown a 400 error code and a message stating that my chosen category was not a valid choice depending on which category I selected for my post. At first I tried to make adjustments to my post create form page in the frontend as well as the handleChange function that I created within the file, but that didn't work. With a litle help from a CI tutor, I managed to identify the issue which was the category being submitted to my API had a lowercase first letter. I therefore needed to match the value that was going to be saved in the database, which I wasn't doing at first. For example, instead of having an option element in my post create/edit form page that looked like this:
+
+```
+<option>Politics</option>
+```
+
+I needed to add a value with a lowercase category like this:
+
+```
+<option value="politics">Politics</option>
+```
+
+In order to match the value in the API.
+
+- I had a few problems when it came to migrating my data models as I was always either adding or editing my existing ones as I was developing the site further. There had been several instances where I needed to completely erase all existing data within my database (both local and external) in order to successfully migrate my models. This involved deleting all my files within the migrations folder (except my __init__.py file) as well as my db.sqlite3 file. I also had to reset my elephantSQL external database before migrating all of my models again. This seemed to do the trick as everything worked fine after that. 
+
+- I was having some issues with my POST requests in my application. When I tried to post/edit/delete a post, I was subsequently shown a red 403 error in the terminal. This also occurred when I tried to logout of my current account in my application. I then found out that it was a CSRF token issue within the DEV environment of my site. I was then told by a tutor that I could comment out that variable within my env.py file and solely work within the production environment which uses the JWTCookieAuthentication.
+
+- There was an instance while migrating my data models where I was shown the error message "InconsistentMigrationHistory: Migration comments.0001_initial is applied before its dependency post.0001_initial on database 'default'". This meant that the comments module which depends on the post module was trying to apply migrations first. This is what caused the error. I recieved some help from my tutor and then realised that I forgot to delete my pycache file from my migrations folder when 'nuking' my database.  
 
 ## Unresolved bugs
 

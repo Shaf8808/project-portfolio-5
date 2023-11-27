@@ -105,7 +105,7 @@ const NavBar = () => {
             </Navbar.Brand>
           </NavLink>
         )}
-        <h4 className="mr-3 mt-1" style={{ color: "white" }}>
+        <h4 className={`${styles.Logo} mr-3 mt-1`} style={{ color: "white" }}>
           Bloggerize
         </h4>
         <NavDropdown title="Categories" id="basic-nav-dropdown">
