@@ -75,7 +75,7 @@ When a user has been authenticated and has logged into their account however, th
 
 As you can see, a whole new set of links are displayed to a logged in user. These links reflect the added functionality that logged in users have access to which I will go into more detail later. These range from seeing posts liked by a user, posts from a profile followed by the user, a link taking them to their own profile page with their username displayed along with their avatar and a signout link.
 
-Additionally, in order for my navbar to be displayed in a clear way on mobile devices, a hamburger style menu is utilised taken from [React Bootstrap](). This ensures that a user can clearly see and use all available links on the navbar regardless of whatever device they are viewing it on. This added responsive functionality can be seen below:
+Additionally, in order for my navbar to be displayed in a clear way on mobile devices, a hamburger style menu is utilised taken from [React Bootstrap](https://react-bootstrap-v4.netlify.app/getting-started/introduction/). This ensures that a user can clearly see and use all available links on the navbar regardless of whatever device they are viewing it on. This added responsive functionality can be seen below:
 
 <img src="docs/frontend/clips/responsive-navbar.gif" width=400>
 
@@ -154,6 +154,27 @@ The very last link that a logged in user is able to see is their profile link wh
 
 <img src="docs/frontend/images/profile-page.png" width=400>
 
+### Edit profile
+
+There is an option available for users to edit their profile details such as their avatar image and their bio which is displayed on their profile page. They can do this by clicking on the three dots next to their username. This brings up three seperate options to either edit their profile, change their username or change their password. This can be seen below:
+
+<img src="docs/frontend/images/profile-page-options.png" width=400>
+
+Once the user selects Edit profile, they are redirected to a page displaying their current avatar image as well as their bio. This page can be seen below:
+
+<img src="docs/frontend/images/edit-profile.png" width=400>
+
+As you can see, there is a button labeled change the image which allows users to upload an image of their own which will be displayed as their new avatar image next to their username. They can also fill in the Bio field which should be a small introduction about themselves which will be shown on their profile page in the About me section.
+
+### Change Username and Password
+
+On top of being able to edit your profile, users can also change their username and password should they wish to. This gives the user the ability to change certain details regarding their account for whatever reason, whether it's to change their password to something more memorable, or to simply change their username to something they like the sound of better. These pages can be seen in the images below:
+
+<img src="docs/frontend/images/change-username.png" width=400>
+
+<img src="docs/frontend/images/change-password.png" width=400>
+
+
 ### Search bar
 
 I have also implemented a search bar on the home, feed, liked and categories page in order to filter through individual posts based on what the user types into the search bar. The user can search by the name of a particular profile owner, the title of a particular post, as well as by category. All of these methods can be seen below in the gif:
@@ -173,6 +194,212 @@ The signin form requires an authenticated username and password to be entered be
 <img src="docs/frontend/images/sign-in.png" width=400>
 
 There is also an additional link that redirects users to the sign up page if the user does not happen to have a created account already, as can be seen in the image above.
+
+### Signup page
+
+The signup page is for users who don't have an account and want to create one. This is very similar to the sign in page except there is a confirm password field added. There is also a link that takes the user to the sign in page if they already happen to have an account. This can be seen below:
+
+<img src="docs/frontend/images/sign-up.png" width=400>
+
+### Edit post
+
+Being able to edit a post is something which only the post creator can do. This can be done straight from the homepage after clicking on the three dots icon the the top right hand side of each post card next to the date it was uploaded. Once a user clicks on it, they are presented with an edit icon and a delete post icon. After the user clicks on the edit post icon, they are taken to the `PostEditForm` page, where all of the fields are already filled with the correct information. This can be seen in the image below:
+
+<img src="docs/frontend/images/post-edit.png" width=400>
+
+### Delete post
+
+Similarly, next to the edit post icon is the delete post icon. Once this is clicked, the post is then permanently deleted. In the case of my site, it is not just the post creator that can delete posts however, but also the administrator (myself). The reason why I decided to include this is as a protective measure in the case of someone posting innapropriate or offensive content. In that case, I can easily delete these posts in order to keep my application clean. I will test this functionality further in my frontend testing documentation, but for now the two icons can be seen below:
+
+<img src="docs/frontend/images/delete-icon.png" width=400>
+
+### Comments section
+
+As mentioned before, my application has a comments feature where user are able to create, read, edit and delete comments. The administrator also has privileged access and can delete comments if deemed inappropriate or offensive. These different functions can be seen in the clip below:
+
+<img src="docs/frontend/clips/comments.gif" width=400>
+
+
+## Responsive design
+
+It was important for my application to be responsive to all different screen sizes from mobile phones to desktops. This is where React Bootstrap really came into play, as it ensured that everything looked the same regardless of how small the screen became. All of the relevant attributes such as the margin and padding needed to be adjusted as the screen became smaller. The post cards on all of the various pages are fluid and responsive, as well as the post detail page. Appropriate margin spacing has been added to the cancel and create buttons on the post create page so that users can successfully create blogposts. I also added additional padding to the search bar as it would become hidden on smaller screens. Below you can see what my site looks like on mobile screens as well as medium screens:
+
+<img src="docs/frontend/clips/responsive-mobile.gif" width=400>
+
+
+<img src="docs/frontend/clips/responsive-medium-screen.gif" width=400>
+
+## Re-usable components
+
+One of the benefits of using React.js as my frontend framework is the ability to re-use a lot of components that had already been created previously. This is one of the biggest pros of using this framework and is something which I tried to take advantage of during the development of this project. Below are some components which I had made that were reused in order to avoid rewriting long bits of code and keeping my codebase DRY (Don't Repeat Yourself)
+
+### `Asset.js`
+
+This component was re-used multiple times in many different files such as my posts page, popular profiles file, profile page, post create form etc. The reason why this particular component was re-used so many times was because of the many roles it could perform defined all within the Asset.js file. It contained the spinner prop, the src image prop as well as the message prop for displaying certain error messages or prompts to user. 
+
+By having all of these props in one file, I could easily re-use this component whenever I wanted to display a loading spinner as the content was loading, or a message/image that I wanted displayed to the user. This meant that I didn't have to constatntly rewrite that piece of code everytime I wanted to achieve this on a particular page.
+
+### `Avatar.js`
+
+My avatar component was also heavily re-used throughout multiple sections of my project such as my Post component, my navbar, my comments section, my profile.js file and more. This component is essentially a file which contains the image of a particular user that is always displayed next to their username. I knew that this was a component I would have to re-use multiple times throughout my application, as the avatar image of a user is pretty important.
+
+### `Post.js`
+
+This was one of the most re-used components for my project, as this component essentially as the name suggests contained the code of my post cards that are littered thoroughout my site. This component is evident on almost every page, whether it's my posts page, my profile page, my feed page etc. I needed a way for users to be able to take a quick look at these post cards and get a general idea of what the blogpost was going to be about before they click on it to see the content within. I believe I have managed to achieve this objective as it contains the most important info in relation to the post that is quick and easy to read. This contains the title, the post owner, the date it was uploade, the category and the excerpt. Additionally, users can like the post and quickly see how many comments it contains as well.
+
+This is all of the most important information that a user can look at and quickly formulate an idea and impression of a particular post. This is why I have decided to re-use this component so much throughout my site as it gives a good general idea of what the post will be about before the user opens it.
+
+### `Postspage.js`
+
+My postspage file is also another component that is heavily re-used, as the file isn't just for my homepage, it is also displayed on my feed, liked and categories page in order to display a list of posts along with the search bar at the top. The reason why I decided to re-use this component is because a lot of my pages would have the same structure and layout along with a search bar that would allow users to search for specific posts should they wish to.
+
+## CRUD Functionality 
+
+Bloggerize implements crud functionality within it's site to allow users to create, read, update and delete their own data on the frontend. This is evident in both the blogposts that they create, as well as the comments that they post on a blog. I will test this functionality in more detail in my frontend testing documentation, but for now I am merely explaining the CRUD funcionality that is evident within my site
+
+- Create - Users can create accounts on the site in order to enable them to create both blogposts as well as comments
+- Read - Users, whether logged in or not, can read blogposts created by other users 
+- Update - Users can edit their own posts and comments should they wish to. They can also edit their profile details, username and password.
+- Delete - Authenticated users can delete their posts and comments. The administrator (myself) can also delete any post or comment if deemed inappropriate o offensive material
+
+## Administrator privileges
+
+It is very important that the administrator or the creator of this site has special privileges when it comes to the content being posted by users. This is more as a precaution than anything else, just in case someone created a post or a comment that really should not be on the site. It is there to keep the application clean and family friendly, so that when a younger user enters the site, they are not exposed to anything inappropriate.
+
+This is why I have created a seperate `AdminDropdown` component that allows me to delete both posts and comments. I am only allowed to delete certain content, not edit or change them in any way as that would not create an inaccurate representation of another user. Evryone should be free to post whatever they want to post, as long as it is not inappropriate material or something you would not want someone young to see.
+
+
+## Frameworks, libraries and dependencies
+
+### React Quill
+
+As mentioned before, I decided to use React Quill due to it's accessibility, wide range of customisation options as well as it's ease of use. The documentation for React Quill is also easy to understand and most importantly implemement within my project. As my site is predominantly a blogging site with certain features similar to that of a social media site, it was important to allow users to have a text editor available to them when they are writing the content of their blog. Without it, they can just simply write plain regular text with no font styles, headings, paragraphs, lists etc.
+
+### NPM Parser
+
+I came across an issue where after creating a blogpost using the installed React Quill editor, the text I created as a test within the content field would be displayed as html. After much thought and testing (along with some valuable help from tutoring) I realised that I needed to parse the text that was being posted using the editor within the content field.
+
+This is why I decided to install `npm parser`. This simply parses the content being posted using the React Quill editor and displays it the way it is shown in the content field. With some help, I managed to create the following function in my `postpage` component
+
+```
+const parseContent = (postContent) => {
+    let newContent = parse(postContent);
+    setContent(newContent);
+  };
+```
+
+This function simply parses the content in the content field and sets it as the new content.
+
+- React-Router-DOM
+
+- ReactDOM
+
+- Axios
+
+- React Bootstrap
+
+- Font Awesome icons
+
+- Google Fonts
+
+
+## Testing
+
+Please refer to the frontend testing spreadsheet where I documented each and every user story for my project before testing each one works as intended.
+
+I have thoroughly and meticulously tested each and every feature of my site to ensure they all work as intended during and after the development process. I then tested each feature a third time to make 100% sure they all work fine.
+
+## Resolved bugs
+
+- I was having an issue filtering through my posts based on it's category and having it display after clicking on the specific category from the dropdown menu in my navbar. I wasn't 100% sure if I was going wrong with the url that I typed in for my exact path attribute or the actual logic itself. Thanks to a little help from tutoring, I managed to find the root of the issue. I had not included the `category` field to my `filterset_fields` in my backend. After making that adjustment, I needed to make use of the useParams() method to grab the parameter from the url, like so:
+
+```
+const { type } = useParams();
+
+  if (type) {
+    filter = `category=${type}&`;
+  }
+```
+
+- As a user could delete a post straight from the homepage, I needed to find a way to reload the page in order to show that the post was deleted. I also found that the history.goBack() method was not an appropriate method, as the previous page that a user could have been on was the post edit page. If the user deletes a post from the post page, it would redirect them back to the previous page (the post edit page) which would cause issues as the post no longer existed. This is why I used the history.push() method to take the user back to the homepage if they chose to delete a post on the post detail page.
+
+```
+const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/posts/${id}/`);
+
+      if (location.pathname.indexOf("/posts/") === 0) {
+        history.push("/");
+      } else {
+        window.location.reload();
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+```
+
+I managed to come up with the code seen above that resolved these issues.
+
+## Unresolved bugs
+
+There are no unresolved bugs
+
+## Validator testing
+
+### W3C CSS validator
+
+All CSS files were successfully passed through the validator with no issues.
+
+### Js Hint validator
+
+All Js files were formatted using the Prettier formatter and then passed through the Js Hint validator with no issues
+
+## Deployment
+
+To deploy to Heroku, follow these steps:
+
+- Fork or clone this repository in GitHub.
+- Log in to Heroku.
+- Select 'Create new app' from the 'New' menu at the top right.
+- Enter a name for the app and select the appropriate region.
+- Select 'Create app'.
+- Select the 'Deploy' tab at the top.
+- Select 'GitHub' from the deployment method options to confirm you wish to deploy using GitHub. You may be asked to enter your GitHub password.
+- Find the 'Connect to GitHub' section and use the search box to locate your repo.
+- Select 'Connect' when found.
+- Optionally choose the main branch under 'Automatic Deploys' and select 'Enable Automatic Deploys' if you wish your deployed site to be automatically redeployed every time you push changes to GitHub.
+- Find the 'Manual Deploy' section, choose 'main' as the branch to deploy and select 'Deploy Branch'.
+
+When deployment is complete, you will be given a link to the deployed site.
+
+
+## Credits
+
+Code Institute tutoring
+
+Jubril Akolade - Mentor
+
+Moments app tutorial
+
+Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
+
+ScrollButton component - https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
+
+Capitalize first letter - https://stackoverflow.com/questions/48387180/is-it-possible-to-capitalize-first-letter-of-text-string-in-react-native-how-to
+
+Converting mp4 files to gifs - https://cloudconvert.com/mp4-to-gif
+
+Readme example - https://github.com/andy-guttridge/tribehub_react/blob/main/README.md
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@ Users can view all of the different categories available by clicking on the Cate
 
 Users can open user profiles after clicking on a users' name or avatar. This page displays the number of posts they made, the number of followers they have, and the number of users they are following themselves. It also provides information about themselves as a sort of introduction as well as their username and avatar. Below this, every post that this user has made on the site is displayed below for the audience to look at and possibly open if they are interested. 
 
-The following documentation is the readme for the backend API section of my project. If you wish to access the readme for my React fronted, please click [here]()
+The following documentation is the readme for the backend API section of my project. If you wish to access the readme for my React frontend, please click [here]()
 
 Live link:
 
@@ -259,23 +259,4 @@ Jubril Akolade- Mentor
 npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.  (In frontend directory)
 (Command to deploy changes to the static files in your project, including the React code. To do this, you need to delete the existing build folder and rebuild it. This command will delete the old folder and replace it with the new one)
 
-Clicking the logo on the Navbar directs signed in users to the post creation form page, while signed out users are directed to the homepage
 
-Talk about npm parser and React Quill usage in my application
-
-Talk about how an admin can delete posts and comments
-
-Talk about how users can search through titles, usernames as well as categories of posts
-
-Had to delete ALL migration files including pycache as well as reset ElephantSQL database in order to successfully migrate my data models.
-
-
-
-
-Credits
-
-Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
-
-ScrollButton component - https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
-
-Capitalize first letter - https://stackoverflow.com/questions/48387180/is-it-possible-to-capitalize-first-letter-of-text-string-in-react-native-how-to
