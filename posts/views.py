@@ -7,20 +7,20 @@ from rest_framework.permissions import IsAdminUser
 from .models import Post
 from .serializers import PostSerializer
 
+
 class CategoryView(generics.ListCreateAPIView):
-    serializer_class=PostSerializer
-    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
-    queryset= Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Post.objects.all()
 
     def post(self, request, format=None):
         data = self.request.data
         category = data['category']
-        queryset = Post.objects.order_by('-created_at').filter(category__iexact=category)
+        queryset = Post.objects.order_by('-created_at').filter(category__iexact=category)  # noqa
 
         serializer = PostSerializer(queryset, many=True)
 
         return Response(serializer.data)
-
 
 
 class PostList(generics.ListCreateAPIView):
@@ -48,7 +48,7 @@ class PostList(generics.ListCreateAPIView):
         # so owner is not needed
         # Displays the posts liked by the user
         'likes__owner__profile',
-        # Displays all the posts of a profile 
+        # Displays all the posts of a profile
         'owner__profile',
         'category'
     ]
@@ -60,8 +60,8 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     ordering_fields = [
-        'comments_count', 
-        'likes_count', 
+        'comments_count',
+        'likes_count',
         'likes__created_at',
     ]
 
@@ -73,7 +73,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieves, updates (put method) and deletes a post
     based on it's id and if your the owner
-    """ 
+    """
     permission_classes = [(IsOwnerOrReadOnly | IsAdminUser)]
     queryset = Post.objects.annotate(
         comments_count=Count('comment', distinct=True),

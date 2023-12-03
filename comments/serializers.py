@@ -14,7 +14,7 @@ class CommentSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def get_created_at(self, obj):
         return naturaltime(obj.created_at)
 
@@ -24,7 +24,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id', 
+            'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'post', 'created_at',
             'updated_at', 'content'
         ]
@@ -37,4 +37,3 @@ class CommentDetailSerializer(CommentSerializer):
     it's id every time we want to update a comment
     """
     post = serializers.ReadOnlyField(source='post.id')
-    

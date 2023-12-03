@@ -72,4 +72,3 @@ class PostDetailViewTests(APITestCase):
         # Enter a different post id number of different user
         response = self.client.put('/posts/2/', {'title': 'a new title'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        

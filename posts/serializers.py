@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Post
-from.models import Categories
 from likes.models import Like
+from .models import Categories
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -53,8 +53,8 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             # The id field is created automatically
             # by django, even if it's not there in models.py
-            'id', 'owner', 'created_at', 'updated_at', 'title', 
-            'excerpt', 'content', 'image', 'is_owner', 'profile_id', 
+            'id', 'owner', 'created_at', 'updated_at', 'title',
+            'excerpt', 'content', 'image', 'is_owner', 'profile_id',
             'profile_image', 'image_filter', 'like_id',
             'comments_count', 'likes_count', 'category'
         ]

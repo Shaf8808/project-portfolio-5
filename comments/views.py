@@ -10,7 +10,7 @@ class CommentList(generics.ListCreateAPIView):
     """
     Generics make it easier to create get and put
     methods without writing them
-    """ 
+    """
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     # This is to filter out certain model fields

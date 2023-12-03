@@ -21,11 +21,11 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
-# Function that runs in the post_save.connect method    
+# Function that runs in the post_save.connect method
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(owner=instance)
 
 
 # (function, user is the model that sends signal)
-post_save.connect(create_profile, sender=User) 
+post_save.connect(create_profile, sender=User)

@@ -5,15 +5,18 @@ from followers.models import Follower
 
 class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    is_owner = serializers.SerializerMethodField()  # A read-only field that shows if a user is the owner of a profile
+    # A read-only field that shows if a user is the owner of a profile
+    is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
     posts_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
-        request = self.context['request']  # Accesses context in views.py and saves it as request
-        return request.user == obj.owner  # Returns true if the user is the owner of the profile
+        # Accesses context in views.py and saves it as request
+        request = self.context['request']
+        # Returns true if the user is the owner of the profile
+        return request.user == obj.owner
 
     def get_following_id(self, obj):
         user = self.context['request'].user
