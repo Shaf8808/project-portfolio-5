@@ -10,7 +10,7 @@ Users can view all of the different categories available by clicking on the Cate
 
 Users can open user profiles after clicking on a users' name or avatar. This page displays the number of posts they made, the number of followers they have, and the number of users they are following themselves. It also provides information about themselves as a sort of introduction as well as their username and avatar. Below this, every post that this user has made on the site is displayed below for the audience to look at and possibly open if they are interested. 
 
-The following documentation is the readme for the React frontend section of my project. If you wish to access the readme for my backend, please click [here]()
+The following documentation is the readme for the React frontend section of my project. If you wish to access the readme for my backend, please click [here](https://github.com/Shaf8808/project-portfolio-5/blob/main/README.md)
 
 Live link:
 
@@ -18,7 +18,7 @@ https://django-rest-api-de0173352397.herokuapp.com/
 
 ## User Stories
 
-The user stories that I created can be seen [here]() on the Github projects kanban board. These user stories governed the main goals and objectives of my website, as well as the design decisions made regarding it. It gave me a clear picture of what I wanted my application to achieve, and how I wanted to achieve it.
+The user stories that I created can be seen [here](https://github.com/users/Shaf8808/projects/5) on the Github projects kanban board. These user stories governed the main goals and objectives of my website, as well as the design decisions made regarding it. It gave me a clear picture of what I wanted my application to achieve, and how I wanted to achieve it.
 
 They also helped me get a better understanding of the needs of the user that would use my site, so that I could develop my site in a way that could meet those needs. In the case of software development, the user is king after all.
 
@@ -305,9 +305,13 @@ This function simply parses the content in the content field and sets it as the 
 
 ## Testing
 
-Please refer to the frontend testing spreadsheet where I documented each and every user story for my project before testing each one works as intended.
+Please refer to the frontend testing [spreadsheet](https://docs.google.com/spreadsheets/d/16zMNoip5piXPKcW1hHZ-C0NMQ37XfSs54CKMKhYL4ww/edit#gid=0) where I documented each and every user story for my project before testing each one works as intended.
 
 I have thoroughly and meticulously tested each and every feature of my site to ensure they all work as intended during and after the development process. I then tested each feature a third time to make 100% sure they all work fine.
+
+## Automated Testing
+
+On top of manual tests carried out for this project, I also implemented some automated tests that I used to make sure the navbar worked as intended, as well as the conditional reendering that is present within the component. This means that the tests performed in my `Navbar.test.js` file tested whether or not conditional links such as the sign in links are present for logged out users. This was reliant on the Moments app tutorial, as I still need some time to get to grips with automated testing. I would have liked to carry out more of them, but I unfortunately was very limited in time to do so.
 
 ## Resolved bugs
 

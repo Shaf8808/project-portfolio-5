@@ -10,7 +10,7 @@ Users can view all of the different categories available by clicking on the Cate
 
 Users can open user profiles after clicking on a users' name or avatar. This page displays the number of posts they made, the number of followers they have, and the number of users they are following themselves. It also provides information about themselves as a sort of introduction as well as their username and avatar. Below this, every post that this user has made on the site is displayed below for the audience to look at and possibly open if they are interested. 
 
-The following documentation is the readme for the backend API section of my project. If you wish to access the readme for my React frontend, please click [here]()
+The following documentation is the readme for the backend API section of my project. If you wish to access the readme for my React frontend, please click [here](https://github.com/Shaf8808/project-portfolio-5/blob/main/frontend.md)
 
 Live link:
 
@@ -32,6 +32,7 @@ https://django-rest-api-de0173352397.herokuapp.com/
   * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
   * [Testing](#testing)
     + [Manual Testing](#manual-testing)
+    + [Automated Testing](#automated-testing)
   * [Python validation](#python-validation)
   * [Resolved bugs](#resolved-bugs)
   * [Unresolved bugs](#unresolved-bugs)
@@ -48,7 +49,12 @@ These user stories were then mapped to API endpoints that were required to achie
 
 ## Data models
 
-My data model schema was planned using [DrawSQL](https://drawsql.app/diagrams). The reason why I decided to go with this tool is to help me visualise and clearly map out each data table and the relationships that each table will have with one another. It is also easy to create tables using this site and quickly create links to some of the other tables included in my application.
+My data model schema was planned using [DrawSQL](https://drawsql.app/). The reason why I decided to go with this tool is to help me visualise and clearly map out each data table and the relationships that each table will have with one another. It is also easy to create tables using this site and quickly create links to some of the other tables included in my application.
+
+My tables can be seen below, along with all of the different relationships they had with one another.
+
+<img src="docs/backend/images/data-models.png" width=400>
+
 
 The custom data models that I created that made the most sense for my specific application can be found below:
 
@@ -166,6 +172,14 @@ https://cloudconvert.com/
 ### Manual Testing
 
 It was important to carry out a series of manual tests for the different endpoints used throughout my project in order to ensure that they all worked as intended. These manual tests were carried out using the Django Rest Framework HTML interface running on the local server and the deployed database. I have documented these tests in a seperate [TESTING.md](https://github.com/Shaf8808/project-portfolio-5/blob/main/TESTING.md) file.
+
+### Automated Testing
+
+On top of the manual tests carried out for the API of my site, I also implemented some automated tests for my post list and post detail views which can be found in my `tests.py` file in my posts directory. These tests involved checking if the post list view listed posts as intended, allowing logged in users to create their own posts, as well as if a logged out user could create a post. These tests have been appropriately named such as `def test_logged_in_user_can_create_post(self)`.
+
+The tests have been carried out by first creating a mock user and testing the various elements such as creating a post, seeing a list of posts etc. This is mainly done by looking at the response status code which should be a 200 ok code. 
+
+I was heavily inspired by the Moments app tutorial when it came to creating these automated tests. I would have loved to carry out some more for the other apps included in my project, but I unfortunately ran out of available time. This is definitely something I intend to look into in more detail, and hopefully increase my skill and confidence in.
 
 ## Python validation
 
