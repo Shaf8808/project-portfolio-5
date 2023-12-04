@@ -29,7 +29,9 @@ export const fetchMoreData = async (resource, setResource) => {
         // array
       }, prevResource.results),
     }));
-  } catch (err) {}
+  } catch (err) {
+    // empty
+  }
 };
 
 export const followHelper = (profile, clickedProfile, following_id) => {

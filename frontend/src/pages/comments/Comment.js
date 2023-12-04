@@ -52,7 +52,9 @@ const Comment = (props) => {
         // Removes the comment that matches the comment id selected
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (error) {}
+    } catch (error) {
+      // empty
+    }
   };
 
   return (

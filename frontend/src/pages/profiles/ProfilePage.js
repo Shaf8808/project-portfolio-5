@@ -120,7 +120,7 @@ function ProfilePage() {
     <>
       <Card.Body className={styles.OwnerTab}>
         <p className={`text-center ${appStyles.ProfileOwner}`}>
-          {profile?.owner}'s posts
+          {profile?.owner}s posts
         </p>
       </Card.Body>
       <hr />

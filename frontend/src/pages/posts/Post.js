@@ -151,7 +151,7 @@ const Post = (props) => {
               // Displays a message if it's the owner of the post
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>You can't like your own post!</Tooltip>}
+                overlay={<Tooltip>You cant like your own post!</Tooltip>}
               >
                 <i className="far fa-heart" />
               </OverlayTrigger>

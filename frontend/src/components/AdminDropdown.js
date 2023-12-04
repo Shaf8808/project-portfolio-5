@@ -15,6 +15,8 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+ThreeDots.displayName = "ThreeDots";
+
 export const AdminDropdown = ({ handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
