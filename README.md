@@ -183,7 +183,7 @@ I was heavily inspired by the Moments app tutorial when it came to creating thes
 
 ## Python validation
 
-All of my custom Python files were passed through the [CI Python linter](https://pep8ci.herokuapp.com/) and all passed the validation 
+All of my Python files were passed through the [CI Python linter](https://pep8ci.herokuapp.com/) and all passed the validation successfully with no errors.
 
 
 ## Resolved bugs

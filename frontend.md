@@ -16,6 +16,58 @@ Live link:
 
 https://django-rest-api-de0173352397.herokuapp.com/
 
+## Table of Contents
+
+- [Bloggerize](#bloggerize)
+  * [User Stories](#user-stories)
+  * [User experience](#user-experience)
+  * [Design](#design)
+    + [Colour scheme](#colour-scheme)
+    + [Font choice](#font-choice)
+  * [Features](#features)
+    + [Logo](#logo)
+    + [Navigation bar](#navigation-bar)
+    + [Homepage](#homepage)
+    + [Popular Profiles](#popular-profiles)
+    + [Post Create page](#post-create-page)
+    + [Categories](#categories)
+    + [Feed page](#feed-page)
+    + [Liked page](#liked-page)
+    + [Sign out](#sign-out)
+    + [Profile link](#profile-link)
+    + [Edit profile](#edit-profile)
+    + [Change Username and Password](#change-username-and-password)
+    + [Search bar](#search-bar)
+    + [Postpage](#postpage)
+    + [Signin page](#signin-page)
+    + [Signup page](#signup-page)
+    + [Edit post](#edit-post)
+    + [Delete post](#delete-post)
+    + [Comments section](#comments-section)
+  * [Responsive design](#responsive-design)
+  * [Re-usable components](#re-usable-components)
+    + [`Asset.js`](#-assetjs-)
+    + [`Avatar.js`](#-avatarjs-)
+    + [`Post.js`](#-postjs-)
+    + [`Postspage.js`](#-postspagejs-)
+  * [CRUD Functionality](#crud-functionality)
+  * [Administrator privileges](#administrator-privileges)
+  * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
+    + [React Quill](#react-quill)
+    + [NPM Parser](#npm-parser)
+  * [Testing](#testing)
+  * [Automated Testing](#automated-testing)
+  * [Resolved bugs](#resolved-bugs)
+  * [Unresolved bugs](#unresolved-bugs)
+  * [Validator testing](#validator-testing)
+    + [W3C CSS validator](#w3c-css-validator)
+    + [ES Lint validator](#es-lint-validator)
+  * [Deployment](#deployment)
+  * [Credits](#credits)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## User Stories
 
 The user stories that I created can be seen [here](https://github.com/users/Shaf8808/projects/5) on the Github projects kanban board. These user stories governed the main goals and objectives of my website, as well as the design decisions made regarding it. It gave me a clear picture of what I wanted my application to achieve, and how I wanted to achieve it.
@@ -353,11 +405,13 @@ There are no unresolved bugs
 
 ### W3C CSS validator
 
-All CSS files were successfully passed through the validator with no issues.
+All CSS files were successfully passed through the validator with no errors present.
 
-### Js Hint validator
+### ES Lint validator
 
-All Js files were formatted using the Prettier formatter and then passed through the Js Hint validator with no issues
+All Js files were formatted using the Prettier formatter and then passed through the ES Lint validator with no issues.
+
+It should be noted that certain changes needed to be implemented in the config file of eslint as it was showing errors in files that were taken straight from the Moments tutorial. One change that needed to be implemented was turning "react/react-in-jsx-scope" off, as it was giving the error "React" must be within scope when using JSX due to me using a different version of React that eslint could not pick up on as mentioned in this article [here](https://kinsta.com/knowledgebase/react-must-be-in-scope-when-using-jsx/#:~:text=Summary-,The%20%E2%80%9CReact%20must%20be%20in%20scope%20when%20using%20JSX%E2%80%9D%20error,not%20properly%20imported%20or%20included.). The second change that had to be made was turning "react/prop-types" off, as I was being shown a lot of errors pertaining to a lot of files taken straight from the Moments tutorial that mentioned certain elements missing in props validation. The third change that had to be made was "react/no-children-prop", as this was in relation to my Infinite Scroll component having children as a prop as shown in the Moments tutorial. This is necessary for the Infinite Scroll component to work correctly and as designed, hence getting rid of this prop broke the functionality of the component.
 
 ## Deployment
 
@@ -391,6 +445,12 @@ Logo - [Hatchful](https://www.shopify.com/tools/logo-maker)
 ScrollButton component - https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
 
 Capitalize first letter - https://stackoverflow.com/questions/48387180/is-it-possible-to-capitalize-first-letter-of-text-string-in-react-native-how-to
+
+Adding displayName to my component - https://stackoverflow.com/questions/67992894/component-definition-is-missing-display-name-for-forwardref
+
+Config Eslint for React Js - https://www.linkedin.com/pulse/config-eslint-prettier-vs-code-react-js-anurag-kumar/
+
+Getting rid of React must be in scope when using jsx error - https://kinsta.com/knowledgebase/react-must-be-in-scope-when-using-jsx/#:~:text=Summary-,The%20%E2%80%9CReact%20must%20be%20in%20scope%20when%20using%20JSX%E2%80%9D%20error,not%20properly%20imported%20or%20included.
 
 Converting mp4 files to gifs - https://cloudconvert.com/mp4-to-gif
 
