@@ -2,11 +2,11 @@
 
 ## Methodology
 
-The method that I decided to use to manually test each endpoint is adding new data to each endpoint that is valid in order to see it's response. I then added invalid data to see whether or not it would display a relevant error message and code. These tests were performed using the Django Rest Framework HTML interface.
+The method that I decided to use to manually test each endpoint is adding new data to each valid endpoint to see its response. I then added invalid data to see whether or not it would display a relevant error message and code. These tests were performed using the Django Rest Framework HTML interface.
 
 The intended functionality of the API is to only allow authenticated users to create blog posts as well as like, follow and comment on specific posts. Any unauthenticated user should merely be able to view these posts and not be able to interact with them in any way shape or form. This can be done through the homepage, by using the search bar or by accessing the categories dropdown menu. This ensures that anyone can browse through the content on the site even if they don't have a profile, but cannot create a post or engage with them in any way.
 
-This means that only logged in users should be able to create, edit and/or delete posts, comments, likes and followers. Logged in users also have the additional option of editing their profiles such as their username, password, bio and avatar image. In the case of an unauthenticated user, these options should not be present which is what I tested for my API.
+This means that only logged-in users should be able to create, edit and/or delete posts, comments, likes and followers. Logged-in users also have the additional option of editing their profiles such as their username, password, bio and avatar image. In the case of an unauthenticated user, these options should not be present which is what I tested for my API.
 
 Additionally, I have also added the option of an administrator (myself) to have the ability to delete posts and comments. The reason why I did this is to filter out any inappropriate or offensive content that some may decide to post on my site in the form of posts or comments. This was also tested during this process.
 
@@ -41,7 +41,7 @@ When a user is logged out, they should only be able to view the comment list wit
 
 <img src="docs/backend/images/comment-list.png" width=800>
 
-When a user is logged in, they should be able to successfully post a comment in relation to a specific post before being displayed in the comment list. The image below shows the new comment that I am about to post using this endpoint.
+When a user is logged in, they should be able to successfully post a comment about a specific post before being displayed in the comment list. The image below shows the new comment that I am about to post using this endpoint.
 
 <img src="docs/backend/images/comment-list-data.png" width=800>
 
@@ -61,7 +61,7 @@ When a user is logged out or logged in, they should be able to view a specific c
 
 <img src="docs/backend/images/comment-detail.png" width=800>
 
-If a user is authenticated and logged in, however, they should have the added ability to both edit AND delete a comment only if they select the id of a comment which they themselves posted. The image below displays these available options, as well as me attempting to update the current comment to test the PUT request works as intended.
+If a user is authenticated and logged in, however, they should have the added ability to both edit AND delete a comment only if they select the id of a comment that they posted. The image below displays these available options, as well as my attempt to update the current comment to test that the PUT request works as intended.
 
 <img src="docs/backend/images/comment-detail-logged-in.png" width=800>
 
@@ -74,7 +74,7 @@ I have also tested the delete method to check if it successfully erases a commen
 <img src="docs/backend/clips/comment-detail-delete.gif" width=800>
 
 
-If I attempt to enter an invalid id within my url, I am shown a 404 Not found error message which can be seen below.
+If I attempt to enter an invalid id within my url, I am shown a 404 Not Found error message which can be seen below.
 
 <img src="docs/backend/images/comment-detail-error.png" width=800>
 
@@ -89,15 +89,15 @@ If I attempt to update a comment with an empty field, I am shown a 400 Bad reque
 
 ### api/followers/
 
-A logged out user should be able to view a list of all followers and all instances of a user following another user. This works as intended and can be seen below.
+A logged-out user should be able to view a list of all followers and all instances of a user following another user. This works as intended and can be seen below.
 
 <img src="docs/backend/images/follower-list.png" width=800>
 
-A logged in user should be able to both view the followers list as well as be able to follow other users authenticated on the site. This works as intended and can be seen below.
+A logged-in user should be able to both view the followers list as well as be able to follow other users authenticated on the site. This works as intended and can be seen below.
 
 <img src="docs/backend/images/follower-list-logged-in.png" width=800>
 
-If a logged in user tries to follow the same user twice however, the API should return a HTTP 400 Bad request error with a suitable error message. This also works as intended and can be seen in the image below. 
+If a logged-in user tries to follow the same user twice, however, the API should return an HTTP 400 Bad request error with a suitable error message. This also works as intended and can be seen in the image below. 
 
 <img src="docs/backend/images/follower-list-duplicate.png" width=800>
 
@@ -106,7 +106,7 @@ If a logged in user tries to follow the same user twice however, the API should 
 
 ### api/followers/id/
 
-A logged out user should only be able to view a certain user following another user by accessing this endpoint. A logged in individual however, should also be able to delete a follower instance as you cannot edit it so that a user can stop following a profile. This is shown in the gif below.
+A logged-out user should only be able to view a certain user following another user by accessing this endpoint. A logged-in individual, however, should also be able to delete a follower instance as you cannot edit it so that a user can stop following a profile. This is shown in the gif below.
 
 <img src="docs/backend/clips/follower-detail-delete.gif" width=800>
 
@@ -115,15 +115,15 @@ A logged out user should only be able to view a certain user following another u
 
 ### api/likes/
 
-This endpoint should display a list of all likes made by users through a GET request which should be visible to all users whether authenticated or not. The image below shows what a logged out user can see.
+This endpoint should display a list of all likes made by users through a GET request which should be visible to all users whether authenticated or not. The image below shows what a logged-out user can see.
 
 <img src="docs/backend/images/likes-list.png" width=800>
 
-If a user is logged in and authenticated however, they should have the added option of adding a like on a particular post which can be accessed through a dropdown menu. This can be seen below.
+If a user is logged in and authenticated, however, they should have the option of adding a like on a particular post which can be accessed through a dropdown menu. This can be seen below.
 
 <img src="docs/backend/images/likes-list-logged-in.png" width=800>
 
-If I try to like the same post twice however, I should not be allowed to do this and be shown an appropriate error message informing me of a duplicate. This works successfully and can be seen below.
+If I try to like the same post twice, however, I should not be allowed to do this and be shown an appropriate error message informing me of a duplicate. This works successfully and can be seen below.
 
 <img src="docs/backend/images/like-list-error.png" width=800>
 
@@ -132,11 +132,11 @@ If I try to like the same post twice however, I should not be allowed to do this
 
 ### api/likes/id/
 
-This endpoint is for a specific like made by a user accessed through it's id which can be viewed by all users. If it's a logged in user, they can also delete a like to represent them 'unliking' a blogpost on the frontend. This can be seen below.
+This endpoint is for a specific like made by a user accessed through its id which can be viewed by all users. If it's a logged-in user, they can also delete a like to represent them 'unliking' a blog post on the front end. This can be seen below.
 
 <img src="docs/backend/clips/like-detail-delete.gif" width=800>
 
-If an invalid id is entered into the url, a 404 Not found error status code is returned and displayed to the user, as shown in the image below.
+If an invalid ID is entered into the url, a 404 Not Found error status code is returned and displayed to the user, as shown in the image below.
 
 <img src="docs/backend/images/like-detail-error.png" width=800>
 
@@ -146,7 +146,7 @@ If an invalid id is entered into the url, a 404 Not found error status code is r
 
 ### api/posts/
 
-This is the endpoint for the post list which should call a GET request in order to view a list of posts that have been made by each user. This should contain information such as the owner, created_at, title, content and more. All users regardless of whether they are authenticated or not should be able to view this as everyone needs to have access to posts created by users on the frontend. This works as intended and can be seen below.
+This is the endpoint for the post list which should call a GET request to view a list of posts that have been made by each user. This should contain information such as the owner, created_at, title, content and more. All users regardless of whether they are authenticated or not should be able to view this as everyone needs to have access to posts created by users on the frontend. This works as intended and can be seen below.
 
 <img src="docs/backend/images/post-list.png" width=800>
 
@@ -167,11 +167,11 @@ If I attempt to post a blog without anything entered into the title field, I am 
 
 ### api/posts/id/
 
-The post detail endpoint should succesfully call a GET request for both logged in and out users, while logged in users should have the option to both edit and delete a post they are the owner of or if it's the administrator. This can be seen below.
+The post detail endpoint should successfully call a GET request for both logged-in and out users, while logged-in users should have the option to both edit and delete a post they are the owner of or if it's the administrator. This can be seen below.
 
 <img src="docs/backend/images/post-detail-logged-in.png" width=800>
 
-If you notice in the image above, I have also edited the post data for my title, escerpt and content fields to test my PUT request. This worked as intended and successfully updated the relevant post which can be seen below.
+If you notice in the image above, I have also edited the post data for my title, excerpt and content fields to test my PUT request. This worked as intended and successfully updated the relevant post which can be seen below.
 
 <img src="docs/backend/images/post-detail-data.png" width=800>
 
@@ -179,7 +179,7 @@ I have also tested whether or not the delete method works as intended and succes
 
 <img src="docs/backend/clips/post-detail-delete.gif" width=800>
 
-If I enter an invalid id into the url bar, a 404 error status code is returned, as seen in the image below.
+If I enter an invalid ID into the url bar, a 404 error status code is returned, as seen in the image below.
 
 <img src="docs/backend/images/post-detail-error.png" width=800>
 
@@ -189,7 +189,7 @@ If I enter an invalid id into the url bar, a 404 error status code is returned, 
 
 ### api/profiles/
 
-The profiles list endpoint should successfully display the same list of all profiles created by users whether they are logged in or not. There is no create view for the profiles-list endpoint as profile creation is handled by django signals. This can be seen below.
+The profiles list endpoint should successfully display the same list of all profiles created by users whether they are logged in or not. There is no create view for the profiles-list endpoint as profile creation is handled by Django signals. This can be seen below.
 
 <img src="docs/backend/images/profile-list.png" width=800>
 
@@ -199,7 +199,7 @@ The profiles list endpoint should successfully display the same list of all prof
 
 ### api/profiles/id/
 
-As for the profile detai endpoint, only the owner of the profile should be able to edit and update their own details such as their username. The image below shows me adding additional data in the content field to test the PUT method.
+As for the profile detail endpoint, only the owner of the profile should be able to edit and update their own details such as their username. The image below shows me adding additional data in the content field to test the PUT method.
 
 <img src="docs/backend/images/profile-detail.png" width=800>
 
@@ -207,7 +207,7 @@ This worked as intended and the result can be seen below.
 
 <img src="docs/backend/images/profile-detail-data.png" width=800>
 
-When I attempt to enter an invalid id, I am shown a 404 error with the message Not Found. This can be seen below.
+When I attempt to enter an invalid ID, I am shown a 404 error with the message Not Found. This can be seen below.
 
 <img src="docs/backend/images/profile-detail-error.png" width=800>
 
@@ -221,6 +221,9 @@ The Category endpoint is the same as the posts endpoint as they are both related
 <img src="docs/backend/images/category.png" width=800>
 
 [Back to top](#table-of-contents)
+
+This document has been spell checked using [Grammarly](https://www.grammarly.com/)
+
 
 
 
