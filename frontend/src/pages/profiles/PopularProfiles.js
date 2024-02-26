@@ -28,9 +28,9 @@ const PopularProfiles = ({ mobile }) => {
               ))}
             </>
           ) : (
-            popularProfiles.results.map((profile) => (
-              <Profile key={profile.id} profile={profile} />
-            ))
+            popularProfiles.results
+              .slice(0, 4)
+              .map((profile) => <Profile key={profile.id} profile={profile} />)
           )}
         </>
       ) : (
